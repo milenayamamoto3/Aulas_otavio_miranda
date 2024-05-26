@@ -1,0 +1,11 @@
+# Ignorar ambientes virtuais em aulas/GUI e aulas/Modulos_python
+aulas/GUI/myvenv/
+aulas/Modulos_python/myvenv/
+
+# Ignorar outros ambientes virtuais comuns
+.env
+.venv
+env/
+venv/
+myvenv/
+
