@@ -7,7 +7,7 @@ from variables import WINDOW_ICON_PATH
 from display import Display
 from info import Info
 from styles import setupTheme
-from buttons import Button
+from buttons import Button, ButtonsGrid
 
 if __name__ == "__main__":
     # nomenclaturas:
@@ -27,23 +27,25 @@ if __name__ == "__main__":
 
     # Info
     info = Info("2.0 ^ 10.0 = 1024")
-    window.addToVLayout(info)
+    window.addWidgetToVLayout(info)
 
     # Display
     display = Display()  # if u put a text inside, it will be printed
     display.setPlaceholderText("Digite aqui")  # fica transparente
-    window.addToVLayout(display)
+    window.addWidgetToVLayout(display)
 
-    button = Button("Texto do botão")
-    window.addToVLayout(button)
+    # Grid (Adicionando o layout ButtonsGrid para o layout vLayout)
+    buttonsGrid = ButtonsGrid(display)
+    window.vLayout.addLayout(buttonsGrid)
 
-    button2 = Button("Texto do botão")
-    window.addToVLayout(button2)
+    # Exemplo de addWidget ao vLayout com QPushButton (Button)
+    # button = Button("Texto do botão")
+    # window.addWidgetToVLayout(button)
 
     # Exemplo de addWidget com QLabel
     # label1 = QLabel("O meu texto")
     # label1.setStyleSheet("font-size: 150px;")
-    # window.addToVLayout(label1)
+    # window.addWidgetToVLayout(label1)
 
     # Executa tudo
     window.adjustFixedSize()
