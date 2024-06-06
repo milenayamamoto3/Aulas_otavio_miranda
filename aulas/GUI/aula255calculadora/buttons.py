@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from display import Display
     from info import Info
+    from main_window import MainWindow
 
 
 class Button(QPushButton):
@@ -28,7 +29,9 @@ class Button(QPushButton):
 
 
 class ButtonsGrid(QGridLayout):
-    def __init__(self, display: "Display", info: "Info", *args, **kwargs) -> None:
+    def __init__(
+        self, display: "Display", info: "Info", window: "MainWindow", *args, **kwargs
+    ) -> None:
         super().__init__(*args, **kwargs)
 
         self._gridMask = [
@@ -41,6 +44,7 @@ class ButtonsGrid(QGridLayout):
 
         self.display = display
         self.info = info
+        self.window = window
         # self.info.setText("Olá") # configura o texto da info
         self._equation = ""
         self._equationInitialValue = "Sua conta"
@@ -59,7 +63,12 @@ class ButtonsGrid(QGridLayout):
         self._equation = value
         self.info.setText(value)
 
+    def vouApagarVocê(self):
+        print('Signal recebido por "vouApagarVocê" em', type(self).__name__)
+
     def _makeGrid(self):
+        self.display.eqRequested.connect(self.vouApagarVocê)
+
         for rowNumber, rowData in enumerate(self._gridMask):
             for colNumber, buttonText in enumerate(rowData):
                 button = Button(buttonText)
@@ -85,7 +94,7 @@ class ButtonsGrid(QGridLayout):
         if text == "C":
             self._connectButtonClicked(button, self._clear)
 
-        if text in "D":
+        if text == "D":
             self._connectButtonClicked(button, self.display.backspace)
 
         if text in "-+/*^":
@@ -93,7 +102,7 @@ class ButtonsGrid(QGridLayout):
                 button, self._makeSlot(self._operatorClicked, button)
             )
 
-        if text in "=":
+        if text == "=":
             self._connectButtonClicked(button, self._eq)
 
     def _makeSlot(self, func, *args, **kwargs):
@@ -136,7 +145,7 @@ class ButtonsGrid(QGridLayout):
         # Se a pessoa clicou no operador sem
         # configurar qualquer número antes
         if not isValidNumber(displayText) and self._left is None:
-            print("Não tem nada para colocar no valor da esquerda")
+            self._showError("Você não digitou nada.")
             return
 
         # Se houver algo no número da esquerda,
@@ -154,7 +163,7 @@ class ButtonsGrid(QGridLayout):
         displayText = self.display.text()
 
         if not isValidNumber(displayText):
-            print("Sem nada para a direita")
+            self._showError("Conta incompleta.")
             return
 
         self._right = float(displayText)
@@ -169,9 +178,9 @@ class ButtonsGrid(QGridLayout):
             else:
                 result = eval(self.equation)
         except ZeroDivisionError:
-            print("Zero Division Error")
+            self._showError("Divisão por zero.")
         except OverflowError:
-            print("Número muito grande")
+            self._showError("Essa conta não pode ser realizada.")
 
         self.display.clear()
         self.info.setText(f"{self.equation} = {result}")
@@ -180,3 +189,30 @@ class ButtonsGrid(QGridLayout):
 
         if result == "error":
             self._left = None
+
+    def _makeDialog(self, text):
+        msgBox = self.window.makeMsgBox()
+        msgBox.setText(text)
+        return msgBox
+
+    def _showError(self, text):
+        msgBox = self._makeDialog(text)
+        msgBox.setInformativeText("Explicando o error")
+        # msgBox.setIcon(msgBox.Icon.NoIcon)  # sem ícone
+        msgBox.setIcon(msgBox.Icon.Critical)
+        msgBox.exec()
+        # msgBox.setStandardButtons(
+        #     msgBox.StandardButton.ok
+        #     | msgBox.button(msgBox.standardButton.NotoAll).setText("CANCEL")
+        # )
+        # result = msgBox.exec()  # executa
+
+        # if result == msgBox.StandardButton.ok:
+        #     print('Usuário clicou em "ok"')
+        # elif result == msgBox.button(msgBox.standardButton.NotoAll).setText("CANCEL"):
+        #     print('Usuário clicou em "CANCEL"')
+
+    def _showInfo(self, text):
+        msgBox = self._makeDialog(text)
+        msgBox.setIcon(msgBox.Icon.Information)
+        msgBox.exec()

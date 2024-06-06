@@ -35,7 +35,7 @@ if __name__ == "__main__":
     window.addWidgetToVLayout(display)
 
     # Grid (Adicionando o layout ButtonsGrid para o layout vLayout)
-    buttonsGrid = ButtonsGrid(display, info)
+    buttonsGrid = ButtonsGrid(display, info, window)
     window.vLayout.addLayout(buttonsGrid)
 
     # Exemplo de addWidget ao vLayout com QPushButton (Button)
