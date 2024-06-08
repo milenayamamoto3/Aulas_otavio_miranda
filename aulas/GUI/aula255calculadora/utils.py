@@ -1,7 +1,11 @@
 import re
 
 # REGEX -> EXPRESSÃO REGULAR
-NUM_OR_DOT_REGEX = re.compile(r"^[0-9.]$")  # ^...$ -> aceita apenas 1 str
+NUM_OR_DOT_REGEX = re.compile(r"^[0-9.]$")
+# ^...$ -> aceita apenas 1 str
+# nº de 0 a 9 OU .
+# r -> raw string (string bruta/crua)
+# conclusão: só aceita uma str que pode ser um nº ou .
 
 
 # função para detectar números e ponto
@@ -14,6 +18,7 @@ def isEmpty(string: str):
     return len(string) == 0
 
 
+# função para detectar se o nº é float
 def isValidNumber(string: str):
     valid = False
     try:
@@ -24,6 +29,7 @@ def isValidNumber(string: str):
     return valid
 
 
+# função para converter a str para float e se for inteiro, converte para inteiro
 def converToNumber(string: str):
     number = float(string)
 
