@@ -7,7 +7,9 @@
 import qdarktheme
 from variables import DARKER_PRIMARY_COLOR, DARKEST_PRIMARY_COLOR, PRIMARY_COLOR
 
-# color: #fff -> branco
+# white color: #fff
+# hover = pairar, passar o cursor encima sem clicar
+# specialButton -> são os botões dos operadores
 qss = f"""
     QPushButton[cssClass="specialButton"] {{
         color: #fff; 
@@ -26,11 +28,11 @@ qss = f"""
 
 def setupTheme():
     qdarktheme.setup_theme(
-        theme="dark",
-        corner_shape="rounded",
+        theme="dark",  # "light"
+        corner_shape="rounded",  # "sharp"
         custom_colors={
             "[dark]": {
-                "primary": f"{PRIMARY_COLOR}",
+                "primary": f"{PRIMARY_COLOR}",  # cor primária do tema "dark"
             },
             "[light]": {
                 "primary": f"{PRIMARY_COLOR}",
