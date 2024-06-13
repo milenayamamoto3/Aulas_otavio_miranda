@@ -242,8 +242,3 @@ class ButtonsGrid(QGridLayout):
         msgBox.setIcon(msgBox.Icon.Information)
         msgBox.exec()
         self.display.setFocus()
-
-
-# Instalar o Pyinstaller
-# python -m pip install pyinstaller
-# pyinstaller --name="Calculadora" --noconfirm --onefile --add-data="aula255calculadora/files/;files/" --icon="aula255calculadora/files/icon.png" --noconsole --clean --log-level=WARN aula255calculadora/main.py
