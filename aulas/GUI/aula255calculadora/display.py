@@ -48,7 +48,7 @@ class Display(QLineEdit):
         ]
 
         if isEnter:
-            print(f"EQ {text} pressionado, sinal emitido", type(self).__name__)
+            print(f"Enter {text} pressionado, sinal emitido", type(self).__name__)
             self.eqPressed.emit()
             return event.ignore()  # fazer nada com o enter
         # return super().keyPressEvent(event)
@@ -83,5 +83,3 @@ class Display(QLineEdit):
 
             self.inputPressed.emit(text)
             return event.ignore()
-
-        print("Texto", text)

@@ -1,5 +1,7 @@
 from pathlib import Path
 
+# digite no seu terminal para saber o caminho absoluto do seu projeto
+# python -c 'import pathlib; print(pathlib.Path().absolute())'
 ROOT_DIR = Path(__file__).parent
 FILES_DIR = ROOT_DIR / "files"
 WINDOW_ICON_PATH = FILES_DIR / "icon.png"
