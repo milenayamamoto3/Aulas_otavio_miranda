@@ -47,7 +47,7 @@ class ButtonsGrid(QGridLayout):
         self.window = window
         # self.info.setText("Olá") # configura o texto da info
         self._equation = ""
-        self._equationInitialValue = "Sua conta"
+        self._equationInitialValue = "Sua conta aqui"
         self._left = None
         self._right = None
         self._op = None
@@ -75,7 +75,7 @@ class ButtonsGrid(QGridLayout):
                 button = Button(buttonText)
 
                 if not isNumOrDot(buttonText) and not isEmpty(buttonText):
-                    # Define propriedade espicial
+                    # Define propriedade especial para operadores
                     button.setProperty("cssClass", "specialButton")
                     self._configSpecialButton(button)
 
@@ -90,7 +90,6 @@ class ButtonsGrid(QGridLayout):
 
     def _configSpecialButton(self, button):
         text = button.text()
-        print("O texto do meu butão especial é :", text)
 
         if text == "C":
             self._connectButtonClicked(button, self._clear)
@@ -170,12 +169,10 @@ class ButtonsGrid(QGridLayout):
         # Se houver algo no número da esquerda,
         # não fazemos nada. Aguardaremos o número da direita.
         if self._left is None:
-            self._left = converToNumber(displayText)  # sincronizando o _left
+            self._left = converToNumber(displayText)  # conf. o _left
 
         self._op = text
         self.equation = f"{self._left} {self._op} ??"
-
-        print(text)
 
     @Slot()
     def _eq(self):
@@ -186,7 +183,7 @@ class ButtonsGrid(QGridLayout):
             self._showError("Conta incompleta.")
             return
 
-        self._right = converToNumber(displayText)
+        self._right = converToNumber(displayText)  # conf. right
         self.equation = f"{self._left} {self._op} {self._right}"
         result = "error"
 
@@ -224,7 +221,7 @@ class ButtonsGrid(QGridLayout):
 
     def _showError(self, text):
         msgBox = self._makeDialog(text)
-        msgBox.setInformativeText("Explicando o error")
+        msgBox.setInformativeText("Operação inválida")
         # msgBox.setIcon(msgBox.Icon.NoIcon)  # sem ícone
         msgBox.setIcon(msgBox.Icon.Critical)
         msgBox.exec()
@@ -245,3 +242,8 @@ class ButtonsGrid(QGridLayout):
         msgBox.setIcon(msgBox.Icon.Information)
         msgBox.exec()
         self.display.setFocus()
+
+
+# Instalar o Pyinstaller
+# python -m pip install pyinstaller
+# pyinstaller --name="Calculadora" --noconfirm --onefile --add-data="aula255calculadora/files/;files/" --icon="aula255calculadora/files/icon.png" --noconsole --clean --log-level=WARN aula255calculadora/main.py
