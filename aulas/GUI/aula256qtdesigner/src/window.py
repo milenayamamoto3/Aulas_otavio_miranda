@@ -35,6 +35,7 @@ class Ui_MainWindow(object):
         font = QFont()
         font.setPointSize(40)
         self.labelResult.setFont(font)
+        self.labelResult.setAlignment(Qt.AlignCenter)
 
         self.gridLayout.addWidget(self.labelResult, 0, 0, 1, 1)
 
@@ -54,11 +55,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.labelName, 0, 0, 1, 1)
 
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setFont(font1)
+        self.buttonSend = QPushButton(self.centralwidget)
+        self.buttonSend.setObjectName(u"buttonSend")
+        self.buttonSend.setFont(font1)
 
-        self.gridLayout_2.addWidget(self.pushButton, 0, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.buttonSend, 0, 2, 1, 1)
 
 
         self.gridLayout.addLayout(self.gridLayout_2, 1, 0, 1, 1)
@@ -85,6 +86,6 @@ class Ui_MainWindow(object):
         self.labelResult.setText(QCoreApplication.translate("MainWindow", u"N\u00e3o tem nada aqui", None))
         self.lineName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Digite seu nome", None))
         self.labelName.setText(QCoreApplication.translate("MainWindow", u"Seu nome:", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
+        self.buttonSend.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
     # retranslateUi
 

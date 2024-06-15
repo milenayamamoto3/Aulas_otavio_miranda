@@ -9,7 +9,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         self.setupUi(self)
 
-        self.Buttonsend.clicked.connect(self.changeLabelResult)  # type: ignore
+        self.buttonSend.clicked.connect(self.changeLabelResult)  # type: ignore
 
     def changeLabelResult(self):
         text = self.lineName.text()
