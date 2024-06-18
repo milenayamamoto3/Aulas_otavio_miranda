@@ -12,6 +12,16 @@ TABLE_NAME = "customers"
 connection = sqlite3.connect(DB_FILE)
 cursor = connection.cursor()
 
+# CUIDADO: fazendo delete sem where
+
+# Deleta os id da tabela, mas a sequencia para novos valores continua
+cursor.execute(f"DELETE FROM {TABLE_NAME}")
+connection.commit()
+
+# Deleta os id da tabela "sequence"=tabela onde fica os id deletados
+cursor.execute(f'DELETE FROM sqlite_sequence WHERE name="{TABLE_NAME}"')
+connection.commit()
+
 # Cria a tabela (SQL)
 # integer(int), text(str), real(float), autoincrement(autoincremento)
 cursor.execute(
@@ -22,16 +32,6 @@ cursor.execute(
     "weight REAL"
     ")"
 )
-connection.commit()
-
-# CUIDADO: fazendo delete sem where
-
-# Deleta os id da tabela, mas a sequencia para novos valores continua
-cursor.execute(f"DELETE FROM {TABLE_NAME}")
-connection.commit()
-
-# Deleta os id da tabela "sequence"=tabela onde fica os id deletados
-cursor.execute(f'DELETE FROM sqlite_sequence WHERE name="{TABLE_NAME}"')
 connection.commit()
 
 # Registrar valores nas colunas da tabela
