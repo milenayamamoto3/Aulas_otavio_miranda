@@ -14,4 +14,7 @@ aulas/GUI/aula255calculadora/Calculadora.spec
 aulas/GUI/aula255calculadora/build
 aulas/GUI/aula255calculadora/dist
 
+# sulite
+db.sqlite3
+
 
