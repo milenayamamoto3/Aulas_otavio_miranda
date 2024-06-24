@@ -14,7 +14,9 @@ aulas/GUI/aula255calculadora/dist
 db.sqlite3
 
 # docker
-aula259Docker
+mysql_259
+aula259Docker.py
+
 
 
 
