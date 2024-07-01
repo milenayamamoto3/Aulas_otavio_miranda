@@ -1,6 +1,6 @@
 # PyMySQL - um cliente MySQL feito em Python Puro
 # Doc: https://pymysql.readthedocs.io/en/latest/
-# Pypy: https://pypi.org/project/pymysql/
+# Pypi: https://pypi.org/project/pymysql/
 # GitHub: https://github.com/PyMySQL/PyMySQL
 import os
 import pymysql
@@ -39,10 +39,10 @@ with connection:
             f"INSERT INTO {TABLE_NAME} "
             "(nome, idade) "
             "VALUES "
-            "(%s, %s) "  # Placeholdersp/ evitar injeção de SQL e melhorar a segurança
+            "(%s, %s) "  # Placeholders p/ evitar injeção de SQL e melhorar a segurança
         )
         data = ("Luiz", 18)
         result = cursor.execute(sql, data)  # type: ignore
         print(sql, data)
-        print(result)
+        print(result)  # 1 value
     connection.commit()
