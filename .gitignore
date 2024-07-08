@@ -17,6 +17,8 @@ db.sqlite3
 mysql_259
 aula259Docker.py
 
+# pycache
+__pycache__
 
 
 
