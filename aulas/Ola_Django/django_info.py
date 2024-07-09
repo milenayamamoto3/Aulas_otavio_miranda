@@ -14,3 +14,7 @@
 # atualizando o gitignore:
 # git rm -r --cached .
 # git add . -> git commit -m "." -> git push origin main
+
+# python manage.py --hep -> mostra os comandos
+# python manage.py startapp home -> cria um app chamado "home"
+# python manage.py startapp blog -> cria um app chamado "blog"
