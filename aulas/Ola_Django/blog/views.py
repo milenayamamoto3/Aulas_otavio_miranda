@@ -16,9 +16,11 @@ from django.shortcuts import render
 
 def blog(request):
     print("blog")
-    return render(request, "blog/index.html")
+    context = {"text": "Estou na blog home"}
+    return render(request, "blog/index.html", context)
 
 
 def exemplo(request):
     print("exemplo")
-    return render(request, "blog/example.html")
+    context = {"text": "Estou no exemplo", "title": "nome da página Exemplo - "}
+    return render(request, "blog/example.html", context)

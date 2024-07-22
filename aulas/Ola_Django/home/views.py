@@ -10,6 +10,7 @@ from django.shortcuts import render
 
 def home(request):
     print("home")
+    context = {"text": "Estou na home"}
 
-    return render(request, "home/index.html")
+    return render(request, "home/index.html", context)
     # return render(request, "global/base.html")
