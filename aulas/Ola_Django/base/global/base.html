@@ -1,7 +1,22 @@
 {% include "global/partials/head.html" %}
 {% include "global/partials/menu.html" %}
 
-<h1>{% block texto %}{% endblock texto %}</h1>
+{% if text %}
+  <h1>{% block texto %}{% endblock texto %}</h1>
+{% endif %}
+
+{% if  %}
+
+{% elif %}
+
+{% else %}
+
+{% endif %}
+
+<main class="content">
+  {% block posts %}{% endblock posts %}
+  {% block home %}{% endblock home %}
+</main>
 
 {% include "global/partials/paragrafo.html" %}
 {% include "global/partials/paragrafo.html" %}

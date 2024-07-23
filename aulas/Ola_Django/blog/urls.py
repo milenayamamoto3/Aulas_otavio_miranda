@@ -1,6 +1,7 @@
 from blog import views
 from django.urls import path
 
+# namespace
 app_name = "blog"
 
 # blog/

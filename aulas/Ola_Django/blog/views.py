@@ -12,11 +12,12 @@
 #     return HttpResponse("exemplo do app 1")
 
 from django.shortcuts import render
+from blog.data import posts
 
 
 def blog(request):
     print("blog")
-    context = {"text": "Estou na blog home"}
+    context = {"text": "Estou na blog home", "posts": posts}
     return render(request, "blog/index.html", context)
 
 
