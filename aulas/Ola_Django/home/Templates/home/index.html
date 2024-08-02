@@ -1,3 +1,13 @@
+{% extends "global/base.html" %}
+
+{% block texto %} 
+  {{ text }} 
+{% endblock texto %}
+
+{% block home %}
+  <h1>HOME</h1>
+{% endblock home %}
+
 {% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +20,4 @@
 </body>
 </html> {% endcomment %}
 
-{% extends "global/base.html" %}
 
-{% block texto %} 
-  {{ text }} 
-{% endblock texto %}
-
-{% block home %}
-  <h1>HOME</h1>
-{% endblock home %}
-
-{{ AQUI E COMO SE FOSSE O PRINT }} 
