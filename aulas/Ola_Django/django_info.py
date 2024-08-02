@@ -1,9 +1,30 @@
 # criando um projecto :
-# dir com o "manage.py" inside
+# 1 - dir com o "manage.py" inside
 # django-admin startproject nomedoProjeto
 # * manage.py tem a mesma função de django-admin
-# dir com o "manage.py" out
+# 2 - dir com o "manage.py" out
 # django-admin startproject nomedoProjeto .
+
+# "rodando"
+# Python manage.py runserver
+
+# coletar arquivos estáticos para static_files
+# Python manage.py collectstatic
+
+# quando o debug é false e tem hosts permitidos usa-se apenas o static_files
+# pois não está mais em construção ( está pronto)
+"""
+DEBUG = False
+
+ALLOWED_HOSTS = ["127.0.0.1"]
+"""
+
+# Quando debug é true(em construção),
+# você pode usar normal os arquivos státicos do apps
+"""
+DEBUG = True
+
+"""
 
 # deletando um projeto:
 # rmdir NomeDoProjeto
