@@ -4,7 +4,6 @@
 env/
 venv/
 myvenv/
-Ola_Django/static_files
 
 # Calculadora
 aulas/GUI/aula255calculadora/Calculadora.spec
@@ -20,6 +19,9 @@ aula259Docker.py
 
 # pycache
 __pycache__
+
+# static_files
+Ola_Django/static_files
 
 
 
