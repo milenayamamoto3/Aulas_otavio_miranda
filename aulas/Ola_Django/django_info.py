@@ -1,4 +1,4 @@
-# criando um projecto :
+# criando um projeto :
 # 1 - dir com o "manage.py" inside
 # django-admin startproject nomedoProjeto
 # * manage.py tem a mesma função de django-admin
@@ -6,13 +6,13 @@
 # django-admin startproject nomedoProjeto .
 
 # "rodando"
-# Python manage.py runserver
+# python manage.py runserver
 
 # coletar arquivos estáticos para static_files
-# Python manage.py collectstatic
+# python manage.py collectstatic
 
 # quando o debug é false e tem hosts permitidos usa-se apenas o static_files
-# pois não está mais em construção ( está pronto)
+# pois não está mais em construção (está pronto)
 """
 DEBUG = False
 

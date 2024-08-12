@@ -14,9 +14,11 @@
 # criando ambiente virtual com venv
 # Abra a pasta do seu projeto no terminal,
 # digite "python -V" para saber a versão do python
-# digite "python -m venv [nome do ambiente]" para criar um ambiente virtual em seu projeto
+# digite "python -m venv [nome do ambiente]" para criar um ambiente virtual
+# em seu projeto
 # digite "gcm python" para saber informações do programa python
-# digite "-Syntax" para aparecer o local detalhado do local de armazenamento do python
+# digite "-Syntax" para aparecer o local detalhado do local de armazenamento
+# do python
 # digite "which python" para saber onde o python está localizado
 
 # Para ativar seu ambiente virtual, abra o terminal do diretório do seu projeto e
