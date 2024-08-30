@@ -1,10 +1,11 @@
 # criando um projeto :
 # 1 - dir com o "manage.py" inside
 # django-admin startproject nomedoProjeto
-# * manage.py tem a mesma função de django-admin
+
 # 2 - dir com o "manage.py" out
 # django-admin startproject nomedoProjeto .
 
+# * "manage.py" tem a mesma função de "django-admin"
 # "rodando"
 # python manage.py runserver
 
