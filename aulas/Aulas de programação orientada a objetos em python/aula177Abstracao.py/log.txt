@@ -1,7 +1,0 @@
-Sucess:Que legal! (LogFileMixin)
-Error:qualquer coisa (LogFileMixin)
-Sucess:Que legal! (LogFileMixin)
-Error:qualquer coisa (LogFileMixin)
-Sucess:Que legal! (LogFileMixin)
-Sucess:Galaxy S está ligado (Smartphone)
-Error:Iphone está desligado (Smartphone)
