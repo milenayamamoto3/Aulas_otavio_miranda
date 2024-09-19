@@ -6,14 +6,14 @@ venv/
 myvenv/
 
 # Calculadora
-aulas/GUI/aula255calculadora/Calculadora.spec
-aulas/GUI/aula255calculadora/build
-aulas/GUI/aula255calculadora/dist
+/Aulas/4_Aulas_de_GUI_em_python/aula255calculadora/Calculadora.spec
+/Aulas/4_Aulas_de_GUI_em_python/aula255calculadora/build
+/Aulas/4_Aulas_de_GUI_em_python/aula255calculadora/dist
 
 # sqlite
 db.sqlite3
 
-# docker
+# Docker
 mysql_259
 aula259Docker.py
 
@@ -21,9 +21,9 @@ aula259Docker.py
 __pycache__
 
 # static_files
-/aulas/Ola_Django/static_files
+/Aulas/6_Aulas_basicas_de_Ola_Django_em_python/static_files
 
-# django
+# Django
 django_info.py
 
 
